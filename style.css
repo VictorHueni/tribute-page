@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Lobster&display=swap');
+:root {
+    --main-color: rgba(209, 35, 96, 1);
+    --light-main-color: rgba(209, 35, 96, 0.2);
+    --secondary-color: rgba(148, 35, 209, 1);
+    --light-secondary-color: rgba(148, 35, 209, 0.2);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Setting a base font size of 10px give us easier rem calculations
+     Info: 1rem === 10px, 1.5rem === 15px, 2rem === 20px and so forth
+   */
+    font-size: 10px;
+    display: block;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: center;
+    color: #333;
+    margin: 0;
+    font-family: 'Lobster', 'sans-serif';
+    background-color: whitesmoke;
+}
+
+.main {
+    padding: 15px;
+}
+
+
+/* Header */
+
+header {
+    margin: 2rem 0;
+}
+
+.title {
+    font-size: 4rem;
+    font-family: 'Lobster', sans-serif;
+    margin: 0px;
+    color: var(--main-color);
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin: 0px;
+}
+
+
+/* Images */
+
+.banner {
+    width: 100%;
+    margin: 0;
+    background-image: url("http://cdn29.us1.fansshare.com/images/jimihendrix/music-atmosphere-bd-be-jimi-hendrix-purple-haze-wallpaper-418165385.jpg");
+    /* Set a specific height */
+    height: 25vh;
+    background-position-y: 30%;
+    /* Position and center the image to scale nicely on all screens */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.flex-container {
+    display: flex;
+}
+
+
+/* Timeline */
+
+.tribute-info {
+    overflow: auto;
+    text-align: left;
+    padding: 50px 15px;
+    max-width: 100vh;
+    margin: auto;
+}
+
+.timeline {
+    position: relative;
+    margin: 50px auto;
+    padding: 0 0 0 170px;
+    list-style: none;
+}
+
+.timeline .event {
+    margin-bottom: 40px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.timeline .event::before,
+.timeline .event::after {
+    position: absolute;
+    display: block;
+    top: 40px;
+}
+
+.timeline .event::before {
+    content: attr(data-year);
+    left: -220px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 3rem;
+    min-width: 120px;
+    top: 25px;
+    font-family: 'Lobster', sans-serif;
+    color: var(--main-color);
+}
+
+.timeline .event::after {
+    content: "";
+    left: -80px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    box-shadow: 0px 0px 0px 3px var(--light-secondary-color);
+}
+
+.event {
+    padding: 22px,
+}
+
+.content {
+    position: relative;
+    padding: 10px;
+    background-color: rgba(255, 248, 252, 0.767);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    border: 15px solid transparent;
+    border-color: transparent var(--main-color) transparent transparent;
+    top: 33px;
+    left: -50px;
+}
+
+.content h2 {
+    color: var(--main-color);
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--light-secondary-color);
+    top: 40px;
+    left: 97.25px;
+}
+
+
+/* Album */
+
+.album {
+    width: 50%;
+    margin-top: 100px;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    height: auto;
+    margin: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.img-caption {
+    margin: 15px 0 5px 0;
+}
+
+.tracklist {
+    max-width: 50%;
+    margin: 15px auto;
+    border-width: 0px;
+    border-collapse: collapse;
+    text-align: left;
+    border-width: 0;
+    overflow-x: auto;
+}
+
+th {
+    background-color: var(--main-color);
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Footer */
+
+footer {
+    bottom: 0;
+}
+
+
+/* Media query */
+
+@media screen and (max-width: 460px) {
+    .title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 2rem;
+    }
+    #main {
+        margin: 0;
+    }
+    .timeline {
+        padding-right: 0px;
+        padding-left: 150px;
+    }
+    .timeline::before {
+        left: 77.25px;
+    }
+    .flex-container {
+        flex-direction: column;
+    }
+    .album {
+        margin-top: 50px;
+        margin: auto;
+    }
+    .tracklist {
+        max-width: 100%;
+        margin: auto;
+    }
+}
